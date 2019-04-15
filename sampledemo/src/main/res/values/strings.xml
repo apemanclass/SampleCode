@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Sampledemo</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="different_color_text">
+        <Data>
+          <![CDATA[今日已有<font color="#f0717e">1</font>人签到，
+            日榜单排在第<font color="#f0717e">1</font>名]]>
+        </Data>
+    </string>
+
+    <string name="from_html_text">
+        <![CDATA[
+        连接演示跳转
+        <a href="http://www.baidu.com">link</a>.
+        ]]>
+    </string>
+
+</resources>

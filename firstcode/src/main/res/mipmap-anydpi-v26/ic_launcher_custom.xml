@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--8系统的应用图标适配-->
+    <!--快捷键 Windows：Ctrl+Shift+A / Mac：command+shft+A   并输入Image Asset-->
+    <background android:drawable="@color/ic_launcher_background" />
+    <foreground android:drawable="@mipmap/ic_launcher_foreground" />
+</adaptive-icon>

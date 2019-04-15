@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:monkey="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:gravity="center"
+    tools:context=".dragbubbleview.BubbleViewActivity">
+
+    <com.sample.yl.mylibrary.custombubble.DragBubbleView
+        android:id="@+id/drag_bubble"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:elevation="9dp"
+        monkey:bubbleColor="#ff0000"
+        monkey:bubbleRadius="16dp"
+        monkey:textColor="#ffffff"
+        monkey:textSize="16sp" />
+
+    <Button
+        android:id="@+id/bt_bubble"
+        android:layout_width="100dp"
+        android:layout_height="120dp"
+        android:drawableTop="@drawable/home2"
+        android:text="主页"
+        android:textStyle="bold" />
+
+</RelativeLayout>

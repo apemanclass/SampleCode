@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/imgbag"
+    android:orientation="vertical"
+    tools:context="com.sample.yl.sampledemo.immersionbar.Main2Activity">
+
+    <Button
+        android:id="@+id/bt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/btn_style"
+        android:text="结合侧滑返回使用"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/bt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/btn_style"
+        android:text="结合约束布局使用"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/bt3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/btn_style"
+        android:text="图片状态栏 + 彩色导航栏"
+        android:textSize="18sp" />
+
+
+    <Spinner
+        android:id="@+id/spinner_content"
+        android:layout_width="400dp"
+        android:layout_height="36dp" />
+
+</LinearLayout>

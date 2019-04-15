@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--字体尺寸-->
+    <dimen name="text_size12">12sp</dimen>
+    <dimen name="text_size13">13sp</dimen>
+    <dimen name="text_size14">14sp</dimen>
+    <dimen name="text_size15">15sp</dimen>
+    <dimen name="text_size16">16sp</dimen>
+    <dimen name="text_size17">17sp</dimen>
+    <dimen name="text_size18">18sp</dimen>
+    <dimen name="text_size19">19sp</dimen>
+    <dimen name="text_size20">20sp</dimen>
+    <dimen name="text_size22">22sp</dimen>
+
+    <dimen name="text_gap1">1dp</dimen>
+    <dimen name="text_gap2">2dp</dimen>
+    <dimen name="text_gap3">3dp</dimen>
+    <dimen name="text_gap5">5dp</dimen>
+    <dimen name="text_gap6">6dp</dimen>
+    <dimen name="text_gap7">7dp</dimen>
+    <dimen name="text_gap8">8dp</dimen>
+    <dimen name="text_gap">10dp</dimen>
+    <dimen name="text_gap12">12dp</dimen>
+    <dimen name="text_gap13">13dp</dimen>
+    <dimen name="text_gap15">15dp</dimen>
+    <dimen name="text_gap17">17dp</dimen>
+    <dimen name="text_gap18">18dp</dimen>
+    <dimen name="text_gap20">20dp</dimen>
+    <dimen name="text_gap25">25dp</dimen>
+    <dimen name="text_gap40">40dp</dimen>
+
+
+</resources>

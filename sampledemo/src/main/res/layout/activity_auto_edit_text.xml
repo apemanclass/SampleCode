@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".autoedittext.AutoEditTextActivity">
+
+    <com.sample.yl.sampledemo.autoedittext.AutoCheckEditText
+        android:id="@+id/et_ac_mobile"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Mobile"
+        android:singleLine="true" />
+
+    <com.sample.yl.sampledemo.autoedittext.AutoCheckEditText
+        android:id="@+id/et_ac_tel"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Telephone"
+        android:singleLine="true" />
+
+    <com.sample.yl.sampledemo.autoedittext.AutoCheckEditText
+        android:id="@+id/et_ac_email"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="E-mail"
+        android:singleLine="true" />
+
+    <com.sample.yl.sampledemo.autoedittext.AutoCheckEditText
+        android:id="@+id/et_ac_url"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="URL"
+        android:singleLine="true" />
+
+    <com.sample.yl.sampledemo.autoedittext.AutoCheckEditText
+        android:id="@+id/et_ac_chz"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="CHZ"
+        android:singleLine="true" />
+
+    <com.sample.yl.sampledemo.autoedittext.AutoCheckEditText
+        android:id="@+id/et_ac_username"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Username"
+        android:singleLine="true" />
+
+    <com.sample.yl.sampledemo.autoedittext.AutoCheckEditText
+        android:id="@+id/et_ac_input_regex"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="[0-9]+"
+        android:singleLine="true" />
+
+</LinearLayout>

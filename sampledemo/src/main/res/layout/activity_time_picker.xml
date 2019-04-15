@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/imgbag"
+    android:orientation="vertical"
+    tools:context="com.sample.yl.sampledemo.timepicker.TimePickerActivity">
+
+    <Button
+        android:id="@+id/bt_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/btn_style"
+        android:text="日期及时间选择"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/bt_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/btn_style"
+        android:text="年月日选择"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/bt_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/btn_style"
+        android:text="年月选择"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/bt_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/btn_style"
+        android:text="月日时分选择"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/bt_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/btn_style"
+        android:text="时分选择"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="22sp" />
+
+    <TextClock
+        android:id="@+id/tc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5.3dp"
+        android:fontFamily="sans-serif-light"
+        android:format12Hour="hh:mm:ss"
+        android:format24Hour="HH:mm:ss"
+        android:textSize="46sp"
+        android:textStyle="normal" />
+
+
+</LinearLayout>

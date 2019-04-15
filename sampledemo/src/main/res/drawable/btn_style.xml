@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 填充的颜色 -->
+    <solid android:color="#01cfc0" />
+
+    <!-- 设置按钮的四个角为弧形 -->
+    <corners android:radius="7dip" />
+
+    <!-- padding：Button里面的文字与Button边界的间隔 -->
+    <padding android:left="8dp" />
+    <padding android:right="8dp" />
+    <padding android:top="0dp" />
+    <padding android:bottom="0dp" />
+</shape>

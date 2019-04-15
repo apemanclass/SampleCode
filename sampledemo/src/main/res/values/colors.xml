@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorYellow">#fff240</color>
+
+    <color name="colorDef">#a6acaf</color>
+    <color name="colorSelect">#2796db</color>
+    <color name="color_f6">#f6f6f6</color>
+
+    <color name="comment_popup_bg">#292929</color>
+
+    <!--自定义进度条背景颜色-->
+    <color name="white_alpha">#0c000000</color>
+
+    <!--自定义进度条渐变颜色-->
+    <color name="progress_color_1">#ff4100</color>
+    <color name="progress_color_2">#FF4081</color>
+    <color name="progress_color_3">#0794ec</color>
+    <color name="progress_color_4">#0015ff</color>
+
+</resources>

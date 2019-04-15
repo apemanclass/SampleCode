@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".svg.SvgDemoActivity">
+
+    <!--SVG  xml资源的使用-->
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/icon_svg" />
+
+    <!--tint 着色器的使用-->
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/user1"
+        android:tint="@color/color_orange" />
+
+    <!--点击selector切换图片效果-->
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/tint_src_selector"
+        android:tint="@color/tint_color_selector" />
+
+</LinearLayout>
