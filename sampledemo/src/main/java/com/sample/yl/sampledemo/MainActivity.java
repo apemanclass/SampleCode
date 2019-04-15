@@ -116,8 +116,9 @@ public class MainActivity extends BaseActivity {
             }
         }, 1000);
 
-//        animation.setAnimation("data.json");
-//        animation.playAnimation();
+        //json动画的使用方法
+        //animation.setAnimation("data.json");
+        //animation.playAnimation();
     }
 
 
