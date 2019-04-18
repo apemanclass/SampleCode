@@ -14,7 +14,8 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         //将svg图片生成指定的png图片
-        vectorDrawables.generatedDensities('xhdpi', 'xxxhdpi')
+        //vectorDrawables.generatedDensities('xhdpi', 'xxxhdpi')
+        vectorDrawables.useSupportLibrary = true
         //只保留指定和默认的资源
         resConfigs('zh-rCN', 'ko')
 
