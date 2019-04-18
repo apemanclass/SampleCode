@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.jakewharton.rxbinding3.view.RxView;
 import com.orhanobut.logger.Logger;
 import com.sample.yl.sampledemo.androidtools.ToolsActivity;
 import com.sample.yl.sampledemo.audiomanager.AudioManagerActivity;
@@ -34,9 +35,13 @@ import com.sample.yl.sampledemo.timepicker.TimePickerActivity;
 import com.sample.yl.sampledemo.tts.TextToSpeechActivity;
 import com.sample.yl.sampledemo.utils.VersionUtils;
 
+import java.util.concurrent.TimeUnit;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
 public class MainActivity extends BaseActivity {
 
@@ -119,8 +124,42 @@ public class MainActivity extends BaseActivity {
         //json动画的使用方法
         //animation.setAnimation("data.json");
         //animation.playAnimation();
+
+        repeatClick();
     }
 
+    //防止按钮被重复点击的方法
+    private void repeatClick() {
+        // 创建观察者
+        Observer observer = new Observer() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(Object value) {
+                Logger.d("ClickActivity:点击了按钮");
+                gotoActivity(BannerActivity.class);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        };
+
+        // 绑定按钮的点击事件，并绑定观察者与被观察者
+        RxView.clicks(bt1)
+                //// 设置间隔2秒才能发送下一个事件
+                .throttleFirst(2, TimeUnit.SECONDS)
+                .subscribe(observer);
+    }
 
     @OnClick({R.id.bt1, R.id.bt2, R.id.bt3, R.id.bt4, R.id.bt5, R.id.bt6, R.id.bt7, R.id.bt8, R.id.bt9, R.id.bt10,
             R.id.bt11, R.id.bt12, R.id.bt13, R.id.bt14, R.id.bt15, R.id.bt16, R.id.bt17, R.id.bt18, R.id.bt19,
@@ -128,7 +167,7 @@ public class MainActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bt1:
-                gotoActivity(BannerActivity.class);
+                //gotoActivity(BannerActivity.class);
                 break;
             case R.id.bt2:
                 gotoActivity(TimePickerActivity.class);
