@@ -43,6 +43,9 @@ import butterknife.OnClick;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
+/**
+ * Created by ${jz} on 2018/8/8。
+ */
 public class MainActivity extends BaseActivity {
 
     @BindView(R.id.bt1)
