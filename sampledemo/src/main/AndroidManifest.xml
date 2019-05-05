@@ -92,7 +92,8 @@
         <activity android:name=".rxjava2.RxJava2Demo" />
         <activity android:name=".tts.TextToSpeechActivity" />
         <activity android:name=".autoedittext.AutoEditTextActivity" />
-        <activity android:name=".svg.SvgDemoActivity"></activity>
+        <activity android:name=".svg.SvgDemoActivity" />
+        <activity android:name=".customview.CustomViewActivity" />
     </application>
 
 </manifest>

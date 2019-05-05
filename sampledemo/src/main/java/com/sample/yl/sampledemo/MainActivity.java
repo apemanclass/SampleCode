@@ -17,6 +17,7 @@ import com.sample.yl.sampledemo.autoedittext.AutoEditTextActivity;
 import com.sample.yl.sampledemo.bannerimage.BannerActivity;
 import com.sample.yl.sampledemo.bottomtabbar.BottomTableBarActivity;
 import com.sample.yl.sampledemo.brvah.BaseRvAdapterActivity;
+import com.sample.yl.sampledemo.customview.CustomViewActivity;
 import com.sample.yl.sampledemo.dragbubbleview.BubbleViewActivity;
 import com.sample.yl.sampledemo.eventbus.two.EvenBusDemo;
 import com.sample.yl.sampledemo.getmodleisnull.IsDataEmptyActivity;
@@ -48,6 +49,9 @@ import io.reactivex.disposables.Disposable;
  */
 public class MainActivity extends BaseActivity {
 
+    //region 界面控件声明
+    @BindView(R.id.animation)
+    LottieAnimationView animation;
     @BindView(R.id.bt1)
     Button bt1;
     @BindView(R.id.bt2)
@@ -92,9 +96,9 @@ public class MainActivity extends BaseActivity {
     Button bt21;
     @BindView(R.id.bt22)
     Button bt22;
-    @BindView(R.id.animation)
-    LottieAnimationView animation;
-
+    @BindView(R.id.bt23)
+    Button bt23;
+    //endregion
 
     private long exitTime = 0;
 
@@ -111,7 +115,7 @@ public class MainActivity extends BaseActivity {
 
         Logger.e("当前包名" + VersionUtils.getPackageName(this));
 
-
+        //region handler的postDelayed()方法依附线程名
         Logger.e("UI Thread = " + Thread.currentThread().getId());
         /**
          * 这个开启的runnable会在这个handler所依附线程中运行，
@@ -123,6 +127,7 @@ public class MainActivity extends BaseActivity {
                 Logger.e("Handler Thread = " + Thread.currentThread().getId());
             }
         }, 1000);
+        //endregion
 
         //json动画的使用方法
         //animation.setAnimation("data.json");
@@ -166,7 +171,7 @@ public class MainActivity extends BaseActivity {
 
     @OnClick({R.id.bt1, R.id.bt2, R.id.bt3, R.id.bt4, R.id.bt5, R.id.bt6, R.id.bt7, R.id.bt8, R.id.bt9, R.id.bt10,
             R.id.bt11, R.id.bt12, R.id.bt13, R.id.bt14, R.id.bt15, R.id.bt16, R.id.bt17, R.id.bt18, R.id.bt19,
-            R.id.bt20, R.id.bt21, R.id.bt22})
+            R.id.bt20, R.id.bt21, R.id.bt22, R.id.bt23})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bt1:
@@ -235,6 +240,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.bt22:
                 gotoActivity(SvgDemoActivity.class);
+                break;
+            case R.id.bt23:
+                gotoActivity(CustomViewActivity.class);
                 break;
         }
     }
