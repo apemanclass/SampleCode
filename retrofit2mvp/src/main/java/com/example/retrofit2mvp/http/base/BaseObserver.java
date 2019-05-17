@@ -1,7 +1,7 @@
 package com.example.retrofit2mvp.http.base;
 
 import com.example.retrofit2mvp.mvp.BaseModel;
-import com.example.retrofit2mvp.mvp.BaseView;
+import com.example.retrofit2mvp.mvp.MvpView;
 import com.google.gson.JsonParseException;
 
 import org.json.JSONException;
@@ -24,7 +24,7 @@ public abstract class BaseObserver<T> extends DisposableObserver<T> {
      */
     //public static final int CODE = BaseContent.basecode;
     public static final int CODE = 0;
-    protected BaseView view;
+    protected MvpView view;
     /**
      * 网络连接失败  无网
      */
@@ -46,7 +46,7 @@ public abstract class BaseObserver<T> extends DisposableObserver<T> {
      */
     public static final int CONNECT_TIMEOUT = 1005;
 
-    public BaseObserver(BaseView view) {
+    public BaseObserver(MvpView view) {
         this.view = view;
     }
 

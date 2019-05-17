@@ -13,21 +13,24 @@ import java.util.List;
 public class MainPresenter extends BasePresenter<MainView> {
 
     public MainPresenter(MainView baseView) {
-        super(baseView);
+        //super(baseView);
+        super.attachView(baseView);
     }
 
     public void getDatas() {
-        addDisposable(apiServer.getData(), new BaseObserver<BaseModel<List<PatientEntity>>>(getBaseView()) {
+        getMvpView().showLoading();
+        addSubscription(apiServer.getData(), new BaseObserver<BaseModel<List<PatientEntity>>>(getMvpView()) {
 
             @Override
             public void onSuccess(BaseModel<List<PatientEntity>> o) {
+                getMvpView().hideLoading();
                 PatientEntity entity = o.getTarget().get(6);
-                getBaseView().onMainSuccess(entity);
+                getMvpView().onMainSuccess(entity);
             }
 
             @Override
             public void onError(String msg) {
-
+                //getMvpView().hideLoading();
             }
         });
     }

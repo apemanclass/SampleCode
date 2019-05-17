@@ -3,10 +3,11 @@ package com.example.retrofit2mvp;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import com.example.retrofit2mvp.mvp.BaseModel;
 import com.example.retrofit2mvp.mvp.BasePresenter;
-import com.example.retrofit2mvp.mvp.BaseView;
+import com.example.retrofit2mvp.mvp.MvpView;
 
 import static com.example.retrofit2mvp.http.base.BaseObserver.NETWORK_ERROR;
 
@@ -14,7 +15,7 @@ import static com.example.retrofit2mvp.http.base.BaseObserver.NETWORK_ERROR;
  * Created by ${jz} on 2018/10/23。
  * activity基类
  */
-public abstract class BaseActivity<P extends BasePresenter> extends AppCompatActivity implements BaseView {
+public abstract class BaseActivity<P extends BasePresenter> extends AppCompatActivity implements MvpView {
     protected final String TAG = this.getClass().getSimpleName();
     public Context mContext;
     protected P mPresenter;
@@ -29,7 +30,9 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         super.onCreate(savedInstanceState);
         mContext = this;
         setContentView(getLayoutId());
-        mPresenter = createPresenter();
+        if (mPresenter == null) {
+            mPresenter = createPresenter();
+        }
         setStatusBar();
 
         this.initToolbar(savedInstanceState);
@@ -106,6 +109,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
      * 进度款消失
      */
     public void closeLoadingDialog() {
+        Toast.makeText(mContext, "加载成功！", Toast.LENGTH_SHORT).show();
 //        if (promptDialog != null) {
 //            promptDialog.dismiss();
 //        }
@@ -115,6 +119,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
      * 加载中...
      */
     public void showLoadingDialog() {
+        Toast.makeText(mContext, "加载中。。。", Toast.LENGTH_SHORT).show();
 //        if (promptDialog == null) {
 //            promptDialog = new PromptDialog(this);
 //        }
