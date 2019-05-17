@@ -5,6 +5,7 @@ package com.example.retrofit2mvp.mvp;
  * 基本回调 可自定义添加所需回调
  */
 public interface MvpView {
+
     /**
      * 显示dialog
      */
