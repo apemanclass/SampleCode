@@ -67,6 +67,7 @@ public class MyIntentService extends IntentService {
         UpdateManager.downloadApk(this, url, apkPath, cd);
     }
 
+    //订阅下载进度
     private void subscribeEvent() {
         RxBus.getDefault().toObservable(DownloadBean.class)
                 .subscribe(new Observer<DownloadBean>() {
@@ -102,5 +103,6 @@ public class MyIntentService extends IntentService {
     public void onDestroy() {
         super.onDestroy();
         System.out.println("onDestory____MyIntentService");
+        cd.dispose();
     }
 }

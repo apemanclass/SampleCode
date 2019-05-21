@@ -12,7 +12,7 @@ import okio.Okio;
 
 /**
  * Created by ${jz} on 2018/8/30。
- * 下载文件
+ * 自定义下载文件响应体
  */
 public class FileResponseBody extends ResponseBody {
 

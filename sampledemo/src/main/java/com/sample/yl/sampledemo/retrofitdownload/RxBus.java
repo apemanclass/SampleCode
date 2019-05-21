@@ -29,6 +29,9 @@ public class RxBus {
 
     private final Subject<Object> _bus = PublishSubject.create().toSerialized();
 
+    /**
+     * 发送一个新事件
+     */
     public void send(Object o) {
         _bus.onNext(o);
     }

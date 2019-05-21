@@ -37,7 +37,7 @@ public class NetWork {
 
     public Observable<ResponseBody> down(String url) {
         OkHttpClient client = new OkHttpClient.Builder()
-                .connectTimeout(8000, TimeUnit.MILLISECONDS)
+                .connectTimeout(60, TimeUnit.SECONDS)
                 .addNetworkInterceptor(new Interceptor() {
                     @Override
                     public Response intercept(Chain chain) throws IOException {
