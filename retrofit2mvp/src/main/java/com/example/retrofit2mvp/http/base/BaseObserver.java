@@ -3,6 +3,7 @@ package com.example.retrofit2mvp.http.base;
 import com.example.retrofit2mvp.mvp.BaseModel;
 import com.example.retrofit2mvp.mvp.MvpView;
 import com.google.gson.JsonParseException;
+import com.sample.yl.mylibrary.utils.NetUtils;
 
 import org.json.JSONException;
 
@@ -116,10 +117,13 @@ public abstract class BaseObserver<T> extends DisposableObserver<T> {
      */
     private void onException(int unknownError, String message) {
         BaseModel model = new BaseModel();
-//        if (!NetUtils.isConnected()) {
-//            model.setErrcode(NETWORK_ERROR);
-//            model.setErrmsg("网络不可用，请检查网络连接！");
-//        }
+        if (!NetUtils.isAvailableByPing()) {
+            model.setCode(NETWORK_ERROR);
+            model.setText("网络不可用，请检查网络连接！");
+        }else {
+            model.setCode(unknownError);
+            model.setText(message);
+        }
         onExceptions(model.getCode(), model.getText());
         if (view != null) {
             view.onErrorCode(model);

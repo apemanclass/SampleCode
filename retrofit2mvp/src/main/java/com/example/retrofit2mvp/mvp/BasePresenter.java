@@ -23,8 +23,6 @@ public class BasePresenter<V extends MvpView> {
     private V mMvpView;
     private V proxyMvpView;
 
-    protected ApiServer apiServer = ApiRetrofit.getInstance().getApiService();
-
 //    public BasePresenter(V mvpView) {
 //        this.mMvpView = mvpView;
 //    }

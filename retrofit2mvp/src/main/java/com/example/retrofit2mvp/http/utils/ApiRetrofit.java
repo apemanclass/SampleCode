@@ -38,7 +38,7 @@ public class ApiRetrofit {
                 .retryOnConnectionFailure(true);//错误重联
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.0.217:8089/phone/")
+                .baseUrl("http://192.168.0.218:8089/phone/")
                 .addConverterFactory(GsonConverterFactory.create())//添加json转换框架
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())//支持RxJava2
                 .client(httpClientBuilder.build())
