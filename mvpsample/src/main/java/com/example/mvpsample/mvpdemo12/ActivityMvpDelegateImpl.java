@@ -23,6 +23,7 @@ public class ActivityMvpDelegateImpl<V extends MvpView, P extends BasePresenter<
     public void onCreate(Bundle savedInstanceState) {
         this.proxyMvpCallback.createPresenter();
         this.proxyMvpCallback.attachView();
+
     }
 
     @Override
