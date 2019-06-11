@@ -26,6 +26,7 @@ dependencies {
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    androidTestImplementation 'com.android.support.test.uiautomator:uiautomator-v18:2.1.3'
     api 'com.android.support:appcompat-v7:' + support_library_version
     api 'com.android.support:support-v4:' + support_library_version
     api 'com.android.support:recyclerview-v7:' + support_library_version
@@ -35,6 +36,8 @@ dependencies {
     api 'com.blankj:utilcode:1.16.3'
     testImplementation 'junit:junit:4.12'
 
+    //日志库
+    api 'com.orhanobut:logger:2.2.0'
     //简化组件间的通讯框架
     api 'org.greenrobot:eventbus:3.1.1'
     //网络请求框架

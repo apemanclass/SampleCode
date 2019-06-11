@@ -54,7 +54,6 @@ dependencies {
     implementation 'com.gyf.barlibrary:barlibrary:2.3.0'              //沉浸式状态栏和沉浸式导航栏
     implementation 'me.imid.swipebacklayout.lib:library:1.1.0'        //侧滑返回
     implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3'  //图片选择库
-    implementation 'com.orhanobut:logger:2.2.0'     //日志库
     implementation 'com.hjq:toast:2.5'      //吐司工具类
     implementation 'com.daasuu:BubbleLayout:1.2.0'  //气泡布局
     implementation 'com.airbnb.android:lottie:2.7.0'//加载json动画库

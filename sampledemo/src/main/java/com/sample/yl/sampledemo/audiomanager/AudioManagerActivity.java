@@ -13,7 +13,7 @@ import com.sample.yl.sampledemo.R;
 
 public class AudioManagerActivity extends AppCompatActivity {
 
-    private Button buPlay;
+    private Button buPlay, bu1, bu2;
     private SoundPool soundPool;
 
 
@@ -23,7 +23,7 @@ public class AudioManagerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_audio_manager);
         initControls();
 
-        AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        final AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         //audioManager.setMode(AudioManager.MODE_IN_COMMUNICATION);//听筒播放
         audioManager.setMode(AudioManager.MODE_NORMAL);//喇叭播放
         audioManager.setSpeakerphoneOn(true);
@@ -53,6 +53,21 @@ public class AudioManagerActivity extends AppCompatActivity {
             }
         });
 
+        bu1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                audioManager.setMode(AudioManager.MODE_IN_COMMUNICATION);
+                audioManager.setSpeakerphoneOn(false);
+            }
+        });
+
+        bu2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                audioManager.setMode(AudioManager.MODE_NORMAL);
+                audioManager.setSpeakerphoneOn(true);
+            }
+        });
     }
 
     /**
@@ -60,6 +75,8 @@ public class AudioManagerActivity extends AppCompatActivity {
      */
     private void initControls() {
         buPlay = (Button) findViewById(R.id.bu_play);
+        bu1 = (Button) findViewById(R.id.bu_1);
+        bu2 = (Button) findViewById(R.id.bu_2);
     }
 
     @Override

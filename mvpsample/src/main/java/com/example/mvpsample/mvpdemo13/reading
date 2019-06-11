@@ -1,0 +1,18 @@
+实现fragment功能
+双重代理--->思想
+第一重代理：代理fragment的生命周期。
+
+    角色一：目标接口
+       ActivityMvpDelegate
+    角色二：目标对象
+       ActivityMvpDelegateImpl
+    角色三：代理对象
+       BaseActivity
+
+
+
+
+
+
+
+第二重代理：代理MVP的实现（绑定和解绑）
