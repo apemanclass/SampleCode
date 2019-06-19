@@ -44,4 +44,14 @@
         android:textColor="@color/white"
         android:textSize="@dimen/text_size18" />
 
+    <Button
+        android:id="@+id/bt_setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@color/colorAccent"
+        android:text="打开权限设置"
+        android:textSize="@dimen/text_size18" />
+
 </LinearLayout>

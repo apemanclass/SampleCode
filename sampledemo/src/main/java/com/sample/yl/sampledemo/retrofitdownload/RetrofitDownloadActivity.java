@@ -1,12 +1,16 @@
 package com.sample.yl.sampledemo.retrofitdownload;
 
+import android.Manifest;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.annotation.NonNull;
 import android.support.v4.app.NotificationCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -14,10 +18,10 @@ import android.widget.Toast;
 
 import com.blankj.utilcode.util.FileUtils;
 import com.orhanobut.logger.Logger;
+import com.sample.yl.mylibrary.utils.PermissionUtils;
 import com.sample.yl.sampledemo.R;
 
 import java.io.File;
-
 import java.util.List;
 
 import butterknife.BindView;
@@ -32,6 +36,8 @@ public class RetrofitDownloadActivity extends AppCompatActivity {
     Button btStop;
     @BindView(R.id.bt_clear)
     Button btClear;
+    @BindView(R.id.bt_setting)
+    Button btSetting;
 
     //要下载的文件地址
     private String url = "https://qd.myapp.com/myapp/qqteam/Androidlite/qqlite_3.7.1.704_android_r110206_GuanWang_537057973_release_10000484.apk";
@@ -58,22 +64,45 @@ public class RetrofitDownloadActivity extends AppCompatActivity {
             Toast.makeText(this, "SD卡不存在", Toast.LENGTH_SHORT).show();
         }
 
+        PermissionUtils.requestMorePermissions(this,
+                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.CAMERA}, 2);
+
     }
 
-    @OnClick({R.id.bt_download, R.id.bt_stop})
+    @OnClick({R.id.bt_download, R.id.bt_stop, R.id.bt_setting})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bt_download:
-
                 MyIntentService.startUpdateService(this, url, apkPath);
-
                 break;
             case R.id.bt_stop:
                 showNotification();
                 break;
+            case R.id.bt_setting:
+                showToAppSettingDialog();
+                break;
         }
     }
 
+    private void showToAppSettingDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle("需要权限")
+                .setMessage("我们需要相关权限，才能实现功能，点击前往，将转到应用的设置界面，请开启应用的相关权限。")
+                .setPositiveButton("前往", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        PermissionUtils.toAppSetting(RetrofitDownloadActivity.this);
+                    }
+                })
+                .setNegativeButton("取消", null).show();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+    }
 
     //系统通知栏8.0适配方案
     private void showNotification() {

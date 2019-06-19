@@ -103,6 +103,5 @@ public class MyIntentService extends IntentService {
     public void onDestroy() {
         super.onDestroy();
         System.out.println("onDestory____MyIntentService");
-        cd.dispose();
     }
 }
