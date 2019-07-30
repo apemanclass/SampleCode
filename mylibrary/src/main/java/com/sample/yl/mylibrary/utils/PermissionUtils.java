@@ -95,7 +95,9 @@ public class PermissionUtils {
      */
     public static void checkAndRequestMorePermissions(Context context, String[] permissions, int requestCode) {
         List<String> permissionList = checkMorePermissions(context, permissions);
-        requestMorePermissions(context, permissionList, requestCode);
+        if (permissionList.size() > 0) {
+            requestMorePermissions(context, permissionList, requestCode);
+        }
     }
 
 
