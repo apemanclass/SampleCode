@@ -295,6 +295,17 @@
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
+            <Button
+                android:id="@+id/bt24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/btn_style"
+                android:text="前台service示例"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
         </LinearLayout>
     </ScrollView>
 

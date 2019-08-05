@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
@@ -109,13 +110,15 @@ public class RetrofitDownloadActivity extends AppCompatActivity {
         String id = "my_channel_01";
         String name = "我是渠道名字";
 
-        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         Notification notification = null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel mChannel = new NotificationChannel(id, name, NotificationManager.IMPORTANCE_LOW);
             Toast.makeText(this, mChannel.toString(), Toast.LENGTH_SHORT).show();
-            notificationManager.createNotificationChannel(mChannel);
-            notification = new Notification.Builder(this)
+            if (notificationManager != null) {
+                notificationManager.createNotificationChannel(mChannel);
+            }
+            notification = new Notification.Builder(this, id)
                     .setChannelId(id)
                     .setContentTitle("开始下载")
                     .setContentText("版本更新中。。。")

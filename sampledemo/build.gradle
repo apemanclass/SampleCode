@@ -18,6 +18,8 @@ android {
         vectorDrawables.useSupportLibrary = true
         //只保留指定和默认的资源
         resConfigs('zh-rCN', 'ko')
+        //仅保留xxhdpi 图片资源（目前主流分辨率1920*1080）
+        addResourceConfiguration('xxhdpi')
 
         //配置so库，CPU架构(真机：arm，模拟器：x86)
         //将指定的so库打包到apk内
@@ -33,9 +35,11 @@ android {
 
         debug {
             //为true时代表源代码混淆开启
-            minifyEnabled false
+            minifyEnabled true
             //启动资源压缩
             shrinkResources false
+            //zipAlign 优化
+            zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }

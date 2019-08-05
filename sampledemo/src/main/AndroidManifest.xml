@@ -94,6 +94,9 @@
         <activity android:name=".autoedittext.AutoEditTextActivity" />
         <activity android:name=".svg.SvgDemoActivity" />
         <activity android:name=".customview.CustomViewActivity" />
+        <activity android:name=".foregroundservice.ForegroundActivity" />
+
+        <service android:name=".foregroundservice.ForegroundService" />
     </application>
 
 </manifest>
