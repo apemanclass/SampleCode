@@ -28,12 +28,12 @@ android {
         }
     }
     buildTypes {
-        release {
+        debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
-        debug {
+        release {
             //为true时代表源代码混淆开启
             minifyEnabled true
             //启动资源压缩
