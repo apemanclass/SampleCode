@@ -4,20 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical"
     tools:context=".svg.SvgDemoActivity">
+
+    <!--调整视图边界-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/update_app_top_bg" />
 
     <!--SVG  xml资源的使用-->
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="80dp"
         app:srcCompat="@drawable/icon_svg" />
 
     <!--tint 着色器的使用-->
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_gravity="center"
         android:src="@drawable/user1"
         android:tint="@color/color_orange" />
 
@@ -25,6 +34,7 @@
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_gravity="center"
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/tint_src_selector"
