@@ -1,7 +1,9 @@
 package com.sample.yl.sampledemo.retrofit;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -12,6 +14,7 @@ import com.sample.yl.sampledemo.retrofit.entity.Result;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -24,6 +27,13 @@ import retrofit2.http.Path;
 public class Retrofit2Activity extends AppCompatActivity {
     @BindView(R.id.tv_msg)
     TextView tvMsg;
+    @BindView(R.id.bt_img)
+    Button btImg;
+
+    @OnClick(R.id.bt_img)
+    public void onViewClicked() {
+        startActivity(new Intent(this, GlideImgActivity.class));
+    }
 
     public interface BlogService {
         @GET("blog/{id}")

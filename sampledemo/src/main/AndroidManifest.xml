@@ -67,6 +67,7 @@
         <activity android:name=".audiomanager.AudioManagerActivity" />
         <activity android:name=".brvah.BaseRvAdapterActivity" />
         <activity android:name=".retrofit.Retrofit2Activity" />
+        <activity android:name=".retrofit.GlideImgActivity" />
         <activity android:name=".retrofitdownload.RetrofitDownloadActivity" />
 
         <service android:name=".retrofitdownload.MyIntentService" />
