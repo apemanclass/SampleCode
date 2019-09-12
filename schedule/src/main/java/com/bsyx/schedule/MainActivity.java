@@ -2,6 +2,7 @@ package com.bsyx.schedule;
 
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
+import android.os.Process;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -24,7 +25,7 @@ import com.just.agentweb.WebViewClient;
 
 
 public class MainActivity extends AppCompatActivity {
-
+    private long exitTime = 0;
     protected AgentWeb mAgentWeb;
     private LinearLayout container;
     private DrawerLayout dlLeft;
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 .interceptUnkownUrl()
                 .createAgentWeb()
                 .ready()
-                .go("");
+                .go("http://192.168.0.137:9999/base-web/a");
 
         initLoadUrl();
 
@@ -151,6 +152,18 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (System.currentTimeMillis() - exitTime > 2000) {
+            Toast.makeText(this, "再按一次退出应用", Toast.LENGTH_SHORT).show();
+            exitTime = System.currentTimeMillis();
+        } else {
+            finish();
+            System.exit(0);
+            Process.killProcess(Process.myPid());
+        }
     }
 
     @Override
