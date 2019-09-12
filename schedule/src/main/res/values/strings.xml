@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">掌上护理</string>
+
+    <string name="ip_hint">请输入IP地址！</string>
+</resources>
