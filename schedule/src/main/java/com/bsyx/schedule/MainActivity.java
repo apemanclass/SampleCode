@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 .interceptUnkownUrl()
                 .createAgentWeb()
                 .ready()
-                .go("http://192.168.0.137:9999/base-web/a");
+                .go("file:///android_asset/index.html");
 
         initLoadUrl();
 
