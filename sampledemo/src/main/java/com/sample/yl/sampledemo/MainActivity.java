@@ -1,8 +1,10 @@
 package com.sample.yl.sampledemo;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.PowerManager;
 import android.os.Process;
 import android.view.View;
 import android.widget.Button;
@@ -101,6 +103,8 @@ public class MainActivity extends BaseActivity {
     Button bt23;
     @BindView(R.id.bt24)
     Button bt24;
+    @BindView(R.id.bt25)
+    Button bt25;
     //endregion
 
     private long exitTime = 0;
@@ -174,7 +178,7 @@ public class MainActivity extends BaseActivity {
 
     @OnClick({R.id.bt1, R.id.bt2, R.id.bt3, R.id.bt4, R.id.bt5, R.id.bt6, R.id.bt7, R.id.bt8, R.id.bt9, R.id.bt10,
             R.id.bt11, R.id.bt12, R.id.bt13, R.id.bt14, R.id.bt15, R.id.bt16, R.id.bt17, R.id.bt18, R.id.bt19,
-            R.id.bt20, R.id.bt21, R.id.bt22, R.id.bt23, R.id.bt24})
+            R.id.bt20, R.id.bt21, R.id.bt22, R.id.bt23, R.id.bt24, R.id.bt25})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bt1:
@@ -249,6 +253,11 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.bt24:
                 gotoActivity(ForegroundActivity.class);
+                break;
+            case R.id.bt25:
+                //在AndroidManifest.xml文件下添加android:sharedUserId=”android.uid.system” 。
+                PowerManager pManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
+                pManager.reboot("重启");
                 break;
         }
     }
