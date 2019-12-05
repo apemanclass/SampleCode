@@ -255,7 +255,7 @@ public class MainActivity extends BaseActivity {
                 gotoActivity(ForegroundActivity.class);
                 break;
             case R.id.bt25:
-                //在AndroidManifest.xml文件下添加android:sharedUserId=”android.uid.system” 。
+                // 在AndroidManifest.xml文件下添加android:sharedUserId=”android.uid.system” 。
                 PowerManager pManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
                 pManager.reboot("重启");
                 break;
