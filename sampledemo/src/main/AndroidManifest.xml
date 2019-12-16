@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sample.yl.sampledemo">
-    <!--android:sharedUserId="android.uid.system"-->
+
+    <!-- android:sharedUserId="android.uid.system" -->
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -97,6 +98,7 @@
         <activity android:name=".svg.SvgDemoActivity" />
         <activity android:name=".customview.CustomViewActivity" />
         <activity android:name=".foregroundservice.ForegroundActivity" />
+        <activity android:name=".arouter.ARouterActivity" />
 
         <service android:name=".foregroundservice.ForegroundService" />
     </application>

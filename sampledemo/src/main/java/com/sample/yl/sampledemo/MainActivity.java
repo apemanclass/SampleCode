@@ -14,6 +14,7 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.jakewharton.rxbinding3.view.RxView;
 import com.orhanobut.logger.Logger;
 import com.sample.yl.sampledemo.androidtools.ToolsActivity;
+import com.sample.yl.sampledemo.arouter.ARouterActivity;
 import com.sample.yl.sampledemo.audiomanager.AudioManagerActivity;
 import com.sample.yl.sampledemo.autoedittext.AutoEditTextActivity;
 import com.sample.yl.sampledemo.bannerimage.BannerActivity;
@@ -105,6 +106,8 @@ public class MainActivity extends BaseActivity {
     Button bt24;
     @BindView(R.id.bt25)
     Button bt25;
+    @BindView(R.id.bt26)
+    Button bt26;
     //endregion
 
     private long exitTime = 0;
@@ -178,7 +181,7 @@ public class MainActivity extends BaseActivity {
 
     @OnClick({R.id.bt1, R.id.bt2, R.id.bt3, R.id.bt4, R.id.bt5, R.id.bt6, R.id.bt7, R.id.bt8, R.id.bt9, R.id.bt10,
             R.id.bt11, R.id.bt12, R.id.bt13, R.id.bt14, R.id.bt15, R.id.bt16, R.id.bt17, R.id.bt18, R.id.bt19,
-            R.id.bt20, R.id.bt21, R.id.bt22, R.id.bt23, R.id.bt24, R.id.bt25})
+            R.id.bt20, R.id.bt21, R.id.bt22, R.id.bt23, R.id.bt24, R.id.bt25, R.id.bt26})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bt1:
@@ -258,6 +261,9 @@ public class MainActivity extends BaseActivity {
                 // 在AndroidManifest.xml文件下添加android:sharedUserId=”android.uid.system” 。
                 PowerManager pManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
                 pManager.reboot("重启");
+                break;
+            case R.id.bt26:
+                gotoActivity(ARouterActivity.class);
                 break;
         }
     }

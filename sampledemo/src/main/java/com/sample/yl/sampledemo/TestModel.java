@@ -85,4 +85,14 @@ public class TestModel {
         }
         return data;
     }
+
+    @Override
+    public String toString() {
+        return "TestModel{" +
+                "title='" + title + '\'' +
+                ", name='" + name + '\'' +
+                ", time='" + time + '\'' +
+                ", info='" + info + '\'' +
+                '}';
+    }
 }

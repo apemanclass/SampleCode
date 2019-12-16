@@ -5,8 +5,14 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
+import com.alibaba.android.arouter.facade.annotation.Autowired;
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.facade.service.SerializationService;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.orhanobut.logger.Logger;
 import com.sample.yl.sampledemo.BaseActivity;
 import com.sample.yl.sampledemo.R;
 import com.sample.yl.sampledemo.TestModel;
@@ -23,6 +29,9 @@ import com.scwang.smartrefresh.layout.listener.SimpleMultiPurposeListener;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+// 在支持路由的页面上添加注解(必选)
+// 这里的路径需要注意的是至少需要有两级，/xx/xx
+@Route(path = "/brvah/BaseRvAdapterActivity")
 public class BaseRvAdapterActivity extends BaseActivity {
 
     @BindView(R.id.rv)
@@ -32,6 +41,10 @@ public class BaseRvAdapterActivity extends BaseActivity {
 
     private TestAdapter adapter;
 
+    //通过Autowired注解 & 将key1作为属性的名称   &  需要在onCreate中调用ARouter.getInstance().inject(this);配合使用
+    @Autowired()
+    public String key1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,8 +52,23 @@ public class BaseRvAdapterActivity extends BaseActivity {
 
         ButterKnife.bind(this);
 
+        //region ARouter目标界面的参数接收用法
+        ARouter.getInstance().inject(this);
+        Logger.t("ARouter").d(key1);
+
+        SerializationService serializationService = ARouter.getInstance().navigation(SerializationService.class);
+        serializationService.init(this);
+        TestModel object = serializationService.parseObject(getIntent().getStringExtra("key2"), TestModel.class);
+        Logger.t("ARouter序列化").d(object.toString());
+
+        //String model = getIntent().getExtras().getString("key3");
+        //Logger.t("ARouter:Bundle").d(model);
+        //endregion
+
+
         //设置布局
-        rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        rv.setLayoutManager(new LinearLayoutManager(this));
+        //rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         //设置分割线
         //rv.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
