@@ -2,10 +2,8 @@ package com.sample.yl.sampledemo.brvah;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -16,14 +14,12 @@ import com.orhanobut.logger.Logger;
 import com.sample.yl.sampledemo.BaseActivity;
 import com.sample.yl.sampledemo.R;
 import com.sample.yl.sampledemo.TestModel;
+import com.sample.yl.mylibrary.utils.ARouterPath;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
 import com.scwang.smartrefresh.layout.footer.BallPulseFooter;
 import com.scwang.smartrefresh.layout.header.BezierRadarHeader;
-import com.scwang.smartrefresh.layout.header.ClassicsHeader;
-import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
-import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.scwang.smartrefresh.layout.listener.SimpleMultiPurposeListener;
 
 import butterknife.BindView;
@@ -31,7 +27,7 @@ import butterknife.ButterKnife;
 
 // 在支持路由的页面上添加注解(必选)
 // 这里的路径需要注意的是至少需要有两级，/xx/xx
-@Route(path = "/brvah/BaseRvAdapterActivity")
+@Route(path = ARouterPath.Brvah_BaseRv)
 public class BaseRvAdapterActivity extends BaseActivity {
 
     @BindView(R.id.rv)

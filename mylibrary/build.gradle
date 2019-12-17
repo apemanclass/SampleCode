@@ -12,6 +12,11 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
     }
     buildTypes {
         release {
@@ -62,4 +67,8 @@ dependencies {
     //PopWindow
     api 'com.github.razerdp:BasePopup:2.1.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+
+    //用于帮助 Android App 进行组件化改造的框架 —— 支持模块间的路由、通信、解耦
+    api 'com.alibaba:arouter-api:1.4.1'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
 }

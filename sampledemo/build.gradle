@@ -73,7 +73,5 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
-    //用于帮助 Android App 进行组件化改造的框架 —— 支持模块间的路由、通信、解耦
-    implementation 'com.alibaba:arouter-api:1.4.1'
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
 }
