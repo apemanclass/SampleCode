@@ -99,6 +99,7 @@
         <activity android:name=".customview.CustomViewActivity" />
         <activity android:name=".foregroundservice.ForegroundActivity" />
         <activity android:name=".arouter.ARouterActivity" />
+        <activity android:name=".retrofit.BigViewActivity" />
 
         <service android:name=".foregroundservice.ForegroundService" />
     </application>

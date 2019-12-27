@@ -38,8 +38,7 @@ public class GlideImgActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         initHttp();
-
-        rvImg.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        rvImg.setLayoutManager(new LinearLayoutManager(this));
     }
 
     public interface ImgService {

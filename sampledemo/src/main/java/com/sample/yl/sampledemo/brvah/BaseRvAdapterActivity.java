@@ -55,7 +55,9 @@ public class BaseRvAdapterActivity extends BaseActivity {
         SerializationService serializationService = ARouter.getInstance().navigation(SerializationService.class);
         serializationService.init(this);
         TestModel object = serializationService.parseObject(getIntent().getStringExtra("key2"), TestModel.class);
-        Logger.t("ARouter序列化").d(object.toString());
+        if (object != null) {
+            Logger.t("ARouter序列化").d(object.toString());
+        }
 
         //String model = getIntent().getExtras().getString("key3");
         //Logger.t("ARouter:Bundle").d(model);

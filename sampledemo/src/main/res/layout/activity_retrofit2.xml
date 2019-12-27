@@ -23,4 +23,12 @@
         android:layout_marginTop="50dp"
         android:text="福利" />
 
+    <Button
+        android:id="@+id/bt_big_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:text="大图分区域加载器" />
+
 </LinearLayout>

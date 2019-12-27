@@ -29,10 +29,17 @@ public class Retrofit2Activity extends AppCompatActivity {
     TextView tvMsg;
     @BindView(R.id.bt_img)
     Button btImg;
+    @BindView(R.id.bt_big_img)
+    Button btBigImg;
 
     @OnClick(R.id.bt_img)
     public void onViewClicked() {
         startActivity(new Intent(this, GlideImgActivity.class));
+    }
+
+    @OnClick(R.id.bt_big_img)
+    public void onViewClicked2() {
+        startActivity(new Intent(this, BigViewActivity.class));
     }
 
     public interface BlogService {
