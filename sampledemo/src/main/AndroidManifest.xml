@@ -100,6 +100,7 @@
         <activity android:name=".foregroundservice.ForegroundActivity" />
         <activity android:name=".arouter.ARouterActivity" />
         <activity android:name=".retrofit.BigViewActivity" />
+        <activity android:name=".retrofit.PhotoViewActivity" />
 
         <service android:name=".foregroundservice.ForegroundService" />
     </application>

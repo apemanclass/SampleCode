@@ -1,10 +1,14 @@
 package com.sample.yl.sampledemo.retrofit;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.gson.Gson;
 import com.sample.yl.sampledemo.R;
 import com.sample.yl.sampledemo.retrofit.entity.ImgEntity;
@@ -31,11 +35,14 @@ public class GlideImgActivity extends AppCompatActivity {
     @BindView(R.id.rv_img)
     RecyclerView rvImg;
 
+    private Context mContext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_glide_img);
         ButterKnife.bind(this);
+        mContext = this;
 
         initHttp();
         rvImg.setLayoutManager(new LinearLayoutManager(this));
@@ -72,8 +79,20 @@ public class GlideImgActivity extends AppCompatActivity {
                     public void onNext(ImgEntity<List<ImgWeal>> listImgEntity) {
                         List<ImgWeal> list = listImgEntity.results;
 
-                        GlideImgAdapter adapter = new GlideImgAdapter(R.layout.item_glide_img, list, GlideImgActivity.this);
-                        rvImg.setAdapter(adapter);
+                        final GlideImgAdapter imgAdapter = new GlideImgAdapter(R.layout.item_glide_img, list, GlideImgActivity.this);
+                        imgAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                                ImgWeal item = imgAdapter.getData().get(position);
+
+                                Intent intent = new Intent(mContext, PhotoViewActivity.class);
+                                Bundle bundle = new Bundle();
+                                bundle.putString("url", item.getUrl());
+                                intent.putExtras(bundle);
+                                startActivity(intent);
+                            }
+                        });
+                        rvImg.setAdapter(imgAdapter);
                     }
 
                     @Override
