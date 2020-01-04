@@ -1,11 +1,15 @@
 package com.sample.yl.sampledemo.retrofit;
 
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.github.chrisbanes.photoview.PhotoView;
+import com.sample.yl.sampledemo.MyApplication;
 import com.sample.yl.sampledemo.R;
 
 /**
@@ -13,7 +17,9 @@ import com.sample.yl.sampledemo.R;
  * PhotoView 是图片的展示功能控件
  */
 public class PhotoViewActivity extends AppCompatActivity {
-    private String url;
+    private int position = 0;
+    private ViewPager vp;
+    private MyPagerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,14 +28,41 @@ public class PhotoViewActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            url = extras.getString("url");
+            position = extras.getInt("position");
         }
 
-        PhotoView photoView = findViewById(R.id.photo_view);
+        vp = findViewById(R.id.vp);
 
-        Glide.with(this)
-                .load(url)
-                .placeholder(R.drawable.loading)
-                .into(photoView);
+
+        if (MyApplication.imgBean != null) {
+            adapter = new MyPagerAdapter(this, MyApplication.imgBean);
+//            vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+//                @Override
+//                public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//
+//                }
+//
+//                @Override
+//                public void onPageSelected(int position) {
+//
+//                }
+//
+//                @Override
+//                public void onPageScrollStateChanged(int state) {
+//
+//                }
+//            });
+            vp.setAdapter(adapter);
+            vp.setCurrentItem(position);
+        }
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (MyApplication.imgBean != null) {
+            MyApplication.imgBean = null;
+        }
     }
 }

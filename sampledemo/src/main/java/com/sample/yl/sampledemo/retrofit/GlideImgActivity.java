@@ -10,6 +10,7 @@ import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.gson.Gson;
+import com.sample.yl.sampledemo.MyApplication;
 import com.sample.yl.sampledemo.R;
 import com.sample.yl.sampledemo.retrofit.entity.ImgEntity;
 import com.sample.yl.sampledemo.retrofit.entity.ImgWeal;
@@ -54,7 +55,7 @@ public class GlideImgActivity extends AppCompatActivity {
     }
 
     private void initHttp() {
-        OkHttpClient.Builder builder = new OkHttpClient().newBuilder();
+        final OkHttpClient.Builder builder = new OkHttpClient().newBuilder();
         builder.readTimeout(10, TimeUnit.SECONDS);
         builder.connectTimeout(10, TimeUnit.SECONDS);
 
@@ -76,18 +77,18 @@ public class GlideImgActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onNext(ImgEntity<List<ImgWeal>> listImgEntity) {
-                        List<ImgWeal> list = listImgEntity.results;
+                    public void onNext(final ImgEntity<List<ImgWeal>> listImgEntity) {
+                        final List<ImgWeal> list = listImgEntity.results;
 
                         final GlideImgAdapter imgAdapter = new GlideImgAdapter(R.layout.item_glide_img, list, GlideImgActivity.this);
                         imgAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
                             @Override
                             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                                ImgWeal item = imgAdapter.getData().get(position);
+                                MyApplication.imgBean = list;
 
                                 Intent intent = new Intent(mContext, PhotoViewActivity.class);
                                 Bundle bundle = new Bundle();
-                                bundle.putString("url", item.getUrl());
+                                bundle.putInt("position", position);
                                 intent.putExtras(bundle);
                                 startActivity(intent);
                             }

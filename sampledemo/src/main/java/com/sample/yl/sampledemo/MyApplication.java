@@ -14,6 +14,7 @@ import com.orhanobut.logger.DiskLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrettyFormatStrategy;
+import com.sample.yl.sampledemo.retrofit.entity.ImgWeal;
 import com.sample.yl.sampledemo.utils.LogCatStrategy;
 
 import java.util.ArrayList;
@@ -24,6 +25,8 @@ import java.util.List;
  */
 
 public class MyApplication extends Application {
+
+    public static List<ImgWeal> imgBean = null;
 
     public static List<Activity> activities = new ArrayList<>();
 
