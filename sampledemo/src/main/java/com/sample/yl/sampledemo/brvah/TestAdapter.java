@@ -1,9 +1,8 @@
 package com.sample.yl.sampledemo.brvah;
 
-import android.support.annotation.Nullable;
-
+import androidx.annotation.Nullable;
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
+import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.sample.yl.sampledemo.R;
 import com.sample.yl.sampledemo.TestModel;
 

@@ -2,10 +2,11 @@ package com.sample.yl.sampledemo.autoedittext;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.v7.widget.AppCompatEditText;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
+
+import androidx.appcompat.widget.AppCompatEditText;
 
 /**
  * Created by ${jz} on 2019/1/30。

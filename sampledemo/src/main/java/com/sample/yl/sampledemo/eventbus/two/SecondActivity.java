@@ -1,7 +1,7 @@
 package com.sample.yl.sampledemo.eventbus.two;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.widget.Button;
 
 import com.sample.yl.sampledemo.R;

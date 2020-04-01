@@ -4,19 +4,6 @@
 
     <!-- android:sharedUserId="android.uid.system" -->
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!-- 仅网络定位的权限 -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!-- 音频管理权限 -->
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-    <!-- 开机时系统发出的开机广播 -->
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -25,16 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.sample.yl.sampledemo.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
-        </provider>
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,6 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".bannerimage.BannerActivity" />
         <activity android:name=".timepicker.TimePickerActivity" />
         <activity android:name=".bottomtabbar.BottomTableBarActivity" />
@@ -71,8 +49,29 @@
         <activity android:name=".retrofit.Retrofit2Activity" />
         <activity android:name=".retrofit.GlideImgActivity" />
         <activity android:name=".retrofitdownload.RetrofitDownloadActivity" />
+        <activity android:name=".progress.ProgressBarActivity" />
 
-        <service android:name=".retrofitdownload.MyIntentService" />
+        <activity android:name=".rxjava2.RxJava2Demo" />
+
+        <activity android:name=".tts.TextToSpeechActivity" />
+        <activity android:name=".autoedittext.AutoEditTextActivity" />
+
+        <activity android:name=".svg.SvgDemoActivity" />
+        <activity android:name=".customview.CustomViewActivity" />
+        <activity android:name=".foregroundservice.ForegroundActivity" />
+        <activity android:name=".arouter.ARouterActivity" />
+        <activity android:name=".retrofit.BigViewActivity" />
+        <activity android:name=".retrofit.PhotoViewActivity" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.sample.yl.sampledemo.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
 
         <receiver android:name=".receiver.BootBroadcastReceiver">
             <intent-filter>
@@ -91,18 +90,23 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".progress.ProgressBarActivity" />
-        <activity android:name=".rxjava2.RxJava2Demo" />
-        <activity android:name=".tts.TextToSpeechActivity" />
-        <activity android:name=".autoedittext.AutoEditTextActivity" />
-        <activity android:name=".svg.SvgDemoActivity" />
-        <activity android:name=".customview.CustomViewActivity" />
-        <activity android:name=".foregroundservice.ForegroundActivity" />
-        <activity android:name=".arouter.ARouterActivity" />
-        <activity android:name=".retrofit.BigViewActivity" />
-        <activity android:name=".retrofit.PhotoViewActivity" />
+        <service android:name=".retrofitdownload.MyIntentService" />
 
         <service android:name=".foregroundservice.ForegroundService" />
     </application>
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 仅网络定位的权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 音频管理权限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 开机时系统发出的开机广播 -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
 </manifest>

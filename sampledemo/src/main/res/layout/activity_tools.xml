@@ -11,7 +11,7 @@
     还有就是这些数据并不会打到apk中，直接运行是没有任何效果的，
     这就是厉害之处！-->
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:itemCount="6"

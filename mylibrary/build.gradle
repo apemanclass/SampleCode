@@ -2,7 +2,6 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion compileSdk
-    buildToolsVersion buildTools
 
     defaultConfig {
         minSdkVersion minSdk
@@ -10,7 +9,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         javaCompileOptions {
             annotationProcessorOptions {
@@ -28,16 +27,16 @@ android {
 
 dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    androidTestImplementation 'com.android.support.test.uiautomator:uiautomator-v18:2.1.3'
-    api 'com.android.support:appcompat-v7:' + support_library_version
-    api 'com.android.support:support-v4:' + support_library_version
-    api 'com.android.support:recyclerview-v7:' + support_library_version
-    api 'com.android.support.constraint:constraint-layout:1.1.3'
-    api 'com.android.support:cardview-v7:' + support_library_version
-    api 'com.android.support:design:' + support_library_version
+//    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+//        exclude group: 'com.android.support', module: 'support-annotations'
+//    })
+//    androidTestImplementation 'com.android.support.test.uiautomator:uiautomator-v18:2.1.3'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    api 'androidx.appcompat:appcompat:1.1.0'
+    api 'androidx.recyclerview:recyclerview:1.1.0'
+    api 'androidx.cardview:cardview:1.0.0'
+    api 'com.google.android.material:material:1.1.0'
     api 'com.blankj:utilcode:1.16.3'
     testImplementation 'junit:junit:4.12'
 
@@ -63,9 +62,9 @@ dependencies {
     //图片预览支持通过各种触摸手势进行缩放。
     api 'com.github.chrisbanes:PhotoView:2.0.0'
     //BRVAH 万能适配器框架
-    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.2'
     //刷新框架
-    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-14'
+    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.2'
     //PopWindow
     api 'com.github.razerdp:BasePopup:2.1.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'

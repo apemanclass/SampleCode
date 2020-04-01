@@ -1,12 +1,14 @@
 package com.sample.yl.sampledemo.retrofit;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
+
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
+import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.sample.yl.sampledemo.R;
 import com.sample.yl.sampledemo.retrofit.entity.ImgWeal;
 

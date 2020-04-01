@@ -1,8 +1,6 @@
 package com.sample.yl.mylibrary.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -11,6 +9,9 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.sample.yl.mylibrary.R;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 /**
  * Created by jz on 2017/5/3.

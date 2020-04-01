@@ -4,8 +4,10 @@ package com.sample.yl.sampledemo.popupindow;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.StyleRes;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.StyleRes;
+
 import android.util.DisplayMetrics;
 import android.view.Window;
 import android.view.WindowManager;

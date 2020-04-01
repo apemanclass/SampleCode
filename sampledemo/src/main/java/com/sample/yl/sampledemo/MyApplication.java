@@ -2,7 +2,7 @@ package com.sample.yl.sampledemo;
 
 import android.app.Activity;
 import android.app.Application;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.Gravity;
 
 import com.alibaba.android.arouter.launcher.ARouter;

@@ -3,12 +3,14 @@ package com.sample.yl.sampledemo.retrofit;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.google.gson.Gson;
 import com.sample.yl.sampledemo.MyApplication;
 import com.sample.yl.sampledemo.R;
@@ -18,6 +20,7 @@ import com.sample.yl.sampledemo.retrofit.entity.ImgWeal;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import androidx.appcompat.app.AppCompatActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.Observable;
@@ -60,7 +63,7 @@ public class GlideImgActivity extends AppCompatActivity {
         builder.connectTimeout(10, TimeUnit.SECONDS);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://gank.io/api/")
+                .baseUrl("https://gank.io/api/")
                 .client(builder.build())
                 .addConverterFactory(GsonConverterFactory.create(new Gson()))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -81,9 +84,9 @@ public class GlideImgActivity extends AppCompatActivity {
                         final List<ImgWeal> list = listImgEntity.results;
 
                         final GlideImgAdapter imgAdapter = new GlideImgAdapter(R.layout.item_glide_img, list, GlideImgActivity.this);
-                        imgAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+                        imgAdapter.setOnItemClickListener(new OnItemClickListener() {
                             @Override
-                            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                            public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
                                 MyApplication.imgBean = list;
 
                                 Intent intent = new Intent(mContext, PhotoViewActivity.class);

@@ -2,8 +2,6 @@ package com.sample.yl.sampledemo.imageselector;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +24,9 @@ import com.sample.yl.sampledemo.R;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * 图片选择成功后 显示RecyclerView列表的适配器。

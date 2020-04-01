@@ -4,9 +4,6 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.app.LoaderManager.LoaderCallbacks;
 
 import android.content.CursorLoader;
@@ -33,8 +30,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.google.android.material.snackbar.Snackbar;
 import com.sample.yl.mylibrary.R;
 import com.sample.yl.mylibrary.utils.ARouterPath;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import static android.Manifest.permission.READ_CONTACTS;
 

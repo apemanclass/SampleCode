@@ -2,12 +2,14 @@ package com.example.firstcode;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
 import android.view.View;
 import android.widget.Button;
 
 import com.example.firstcode.chapter2.FirstActivity;
 import com.example.firstcode.chapter3.CustomUiActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {

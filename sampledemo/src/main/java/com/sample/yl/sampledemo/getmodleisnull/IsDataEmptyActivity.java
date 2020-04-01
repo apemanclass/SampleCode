@@ -1,7 +1,7 @@
 package com.sample.yl.sampledemo.getmodleisnull;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.TextView;
 

@@ -1,9 +1,6 @@
 package com.sample.yl.sampledemo.brvah;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -22,6 +19,9 @@ import com.scwang.smartrefresh.layout.footer.BallPulseFooter;
 import com.scwang.smartrefresh.layout.header.BezierRadarHeader;
 import com.scwang.smartrefresh.layout.listener.SimpleMultiPurposeListener;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -72,7 +72,7 @@ public class BaseRvAdapterActivity extends BaseActivity {
 
         adapter = new TestAdapter(R.layout.item_layout, TestModel.getTestData());
         //设置条目的动画效果
-        adapter.openLoadAnimation(BaseQuickAdapter.SCALEIN);
+        adapter.setAnimationWithDefault(BaseQuickAdapter.AnimationType.ScaleIn);
 
         //设置 Header 为 贝塞尔雷达 样式
         refreshLayout.setRefreshHeader(new BezierRadarHeader(this).setEnableHorizontalDrag(true));
@@ -99,7 +99,7 @@ public class BaseRvAdapterActivity extends BaseActivity {
         refreshLayout.setOnMultiPurposeListener(new SimpleMultiPurposeListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                adapter.replaceData(TestModel.getTestData2());
+                adapter.setList(TestModel.getTestData2());
                 refreshLayout.finishRefresh(2000);
             }
 

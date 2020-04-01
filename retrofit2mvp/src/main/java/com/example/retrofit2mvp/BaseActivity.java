@@ -2,12 +2,13 @@ package com.example.retrofit2mvp;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.example.retrofit2mvp.mvp.BaseModel;
 import com.example.retrofit2mvp.mvp.BasePresenter;
 import com.example.retrofit2mvp.mvp.MvpView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import static com.example.retrofit2mvp.http.base.BaseObserver.NETWORK_ERROR;
 

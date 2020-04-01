@@ -3,8 +3,6 @@ package com.example.retrofit2mvp;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +10,9 @@ import android.view.ViewGroup;
 import com.example.retrofit2mvp.mvp.BaseModel;
 import com.example.retrofit2mvp.mvp.BasePresenter;
 import com.example.retrofit2mvp.mvp.MvpView;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 /**
  * Created by ${jz} on 2019/5/17。
