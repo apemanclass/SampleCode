@@ -2,7 +2,9 @@ package com.sample.yl.sampledemo;
 
 import android.app.Activity;
 import android.app.Application;
+
 import androidx.annotation.Nullable;
+
 import android.view.Gravity;
 
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -118,6 +120,7 @@ public class MyApplication extends Application {
                 return BuildConfig.DEBUG;//用于确定日志是否应该打印出来。;
             }
         });
+        //保存日志信息到本地
         Logger.addLogAdapter(new DiskLogAdapter());
 
         if (BuildConfig.DEBUG) {   // 这两行必须写在init之前，否则这些配置在init过程中将无效
