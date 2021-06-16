@@ -9,8 +9,6 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [AROUTER_MODULE_NAME: project.getName()]
@@ -35,6 +33,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     api 'androidx.appcompat:appcompat:1.1.0'
     api 'androidx.recyclerview:recyclerview:1.1.0'
+    api 'androidx.constraintlayout:constraintlayout:2.0.0-beta6'
     api 'androidx.cardview:cardview:1.0.0'
     api 'com.google.android.material:material:1.1.0'
     api 'com.blankj:utilcode:1.16.3'

@@ -29,6 +29,8 @@ import com.sample.yl.sampledemo.gpslocation.GpsLocActivity;
 import com.sample.yl.sampledemo.imageselector.PictureSelectorActivity;
 import com.sample.yl.sampledemo.immersionbar.Main2Activity;
 import com.sample.yl.sampledemo.loadingdrawable.MainLoadingActivity;
+import com.sample.yl.sampledemo.model.UserParcelable;
+import com.sample.yl.sampledemo.model.UserSerializable;
 import com.sample.yl.sampledemo.popupindow.PopupActivity;
 import com.sample.yl.sampledemo.progress.ProgressBarActivity;
 import com.sample.yl.sampledemo.retrofit.Retrofit2Activity;
@@ -40,6 +42,7 @@ import com.sample.yl.sampledemo.timepicker.TimePickerActivity;
 import com.sample.yl.sampledemo.tts.TextToSpeechActivity;
 import com.sample.yl.sampledemo.utils.VersionUtils;
 
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
@@ -108,6 +111,8 @@ public class MainActivity extends BaseActivity {
     Button bt25;
     @BindView(R.id.bt26)
     Button bt26;
+    @BindView(R.id.bt27)
+    Button bt27;
     //endregion
 
     private long exitTime = 0;
@@ -181,7 +186,7 @@ public class MainActivity extends BaseActivity {
 
     @OnClick({R.id.bt1, R.id.bt2, R.id.bt3, R.id.bt4, R.id.bt5, R.id.bt6, R.id.bt7, R.id.bt8, R.id.bt9, R.id.bt10,
             R.id.bt11, R.id.bt12, R.id.bt13, R.id.bt14, R.id.bt15, R.id.bt16, R.id.bt17, R.id.bt18, R.id.bt19,
-            R.id.bt20, R.id.bt21, R.id.bt22, R.id.bt23, R.id.bt24, R.id.bt25, R.id.bt26})
+            R.id.bt20, R.id.bt21, R.id.bt22, R.id.bt23, R.id.bt24, R.id.bt25, R.id.bt26, R.id.bt27})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bt1:
@@ -265,11 +270,31 @@ public class MainActivity extends BaseActivity {
             case R.id.bt26:
                 gotoActivity(ARouterActivity.class);
                 break;
+            case R.id.bt27:
+                gotoActivityData();
+                break;
         }
     }
 
     private void gotoActivity(Class cls) {
         Intent intent = new Intent(this, cls);
+        startActivity(intent);
+    }
+
+    //跳转app自动绑定参数值
+    private void gotoActivityData() {
+        ArrayList<UserParcelable> userParcelableList = new ArrayList<>();
+        userParcelableList.add(new UserParcelable("Jett"));
+        Intent intent = new Intent(this, SvgDemoActivity.class)
+                .putExtra("name", "jz")
+                .putExtra("attr", "帅")
+                .putExtra("isBoolean", true)
+                .putExtra("array", new int[]{1, 2, 3, 4, 5, 6})
+                .putExtra("userParcelable", new UserParcelable("Lance"))
+                .putExtra("userParcelables", new UserParcelable[]{new UserParcelable("Alvin")})
+                .putExtra("users", new UserSerializable[]{new UserSerializable("Jett")})
+                .putExtra("strs", new String[]{"1", "2"})
+                .putParcelableArrayListExtra("userParcelableList", userParcelableList);
         startActivity(intent);
     }
 

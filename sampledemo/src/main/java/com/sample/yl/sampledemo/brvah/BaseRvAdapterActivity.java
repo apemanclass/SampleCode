@@ -10,7 +10,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.orhanobut.logger.Logger;
 import com.sample.yl.sampledemo.BaseActivity;
 import com.sample.yl.sampledemo.R;
-import com.sample.yl.sampledemo.TestModel;
+import com.sample.yl.sampledemo.model.TestModel;
 import com.sample.yl.mylibrary.utils.ARouterPath;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;

@@ -1,1 +1,3 @@
-include ':mylibrary', ':sampledemo', ':firstcode', ':mvpsample', ':nursesystem', ':retrofit2mvp', ':schedule'
+include ':mylibrary', ':sampledemo', ':firstcode',
+        ':mvpsample', ':nursesystem', ':retrofit2mvp',
+        ':schedule'

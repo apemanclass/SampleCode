@@ -7,7 +7,7 @@ import android.widget.Button;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.sample.yl.mylibrary.utils.ARouterPath;
 import com.sample.yl.sampledemo.R;
-import com.sample.yl.sampledemo.TestModel;
+import com.sample.yl.sampledemo.model.TestModel;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

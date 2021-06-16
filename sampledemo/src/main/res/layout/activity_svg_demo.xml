@@ -40,4 +40,11 @@
         android:src="@drawable/tint_src_selector"
         android:tint="@color/tint_color_selector" />
 
+    <TextView
+        android:id="@+id/tv_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        tools:text="111111111111111111" />
+
 </LinearLayout>

@@ -23,7 +23,7 @@ android {
         //配置so库，CPU架构(真机：arm，模拟器：x86)
         //将指定的so库打包到apk内
         ndk {
-            abiFilters('armeabi', 'armeabi-v7a')
+            abiFilters('armeabi', 'armeabi-v7a', 'x86')
         }
 
         javaCompileOptions {
