@@ -6,7 +6,12 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import android.view.View;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 import java.util.Arrays;
 
 /**
@@ -80,12 +85,80 @@ public class InjectUtils {
 
                     field.setAccessible(true);
                     try {
-                        field.set(activity, obj);
+                        field.set(activity, obj);//该字段如果是static修饰的，反射第一参数可以传null
                     } catch (IllegalAccessException e) {
                         e.printStackTrace();
                     }
                 }
             }
+        }
+    }
+
+    /**
+     * 注解加反射的机制实现自动设置view的点击事件
+     */
+    public static void injectEvent(Activity activity) {
+        Class<? extends Activity> cls = activity.getClass();
+        Method[] declaredMethods = cls.getDeclaredMethods();
+
+        for (Method method : declaredMethods) {
+            //获取方法上的所有注解
+            Annotation[] annotations = method.getAnnotations();
+            for (Annotation annotation : annotations) {
+                //注解类型
+                Class<? extends Annotation> annotationType = annotation.annotationType();
+                if (annotationType.isAnnotationPresent(EventType.class)) {
+                    EventType eventType = annotationType.getAnnotation(EventType.class);
+                    // OnClickListener.class
+                    Class listenerType = eventType.listenerType();
+                    // setOnClickListener
+                    String listenerSetter = eventType.listenerSetter();
+
+                    try {
+                        // 不需要关心到底是 OnClick 还是 OnLongClick
+                        Method valueMethod = annotationType.getDeclaredMethod("value");
+                        //调用当前类型注解的方法  因为知道当前定义的方法是int的数组  直接强转
+                        int[] viewIds = (int[]) valueMethod.invoke(annotation);
+
+                        method.setAccessible(true);
+                        ListenerInvocationHandler<Activity> handler = new ListenerInvocationHandler<>(activity, method);
+                        Object listenerProxy = Proxy.newProxyInstance(listenerType.getClassLoader(),
+                                new Class[]{listenerType}, handler);
+                        // 遍历注解的值
+                        for (int viewId : viewIds) {
+                            // 获得当前activity的view（赋值）
+                            View view = activity.findViewById(viewId);
+                            // 获取指定的方法(不需要判断是Click还是LongClick)
+                            // 如获得：setOnClickListener方法，参数为OnClickListener
+                            // 获得 setOnLongClickListener，则参数为OnLongClickListener
+                            Method setter = view.getClass().getMethod(listenerSetter, listenerType);
+                            // 执行方法
+                            setter.invoke(view, listenerProxy);//执行setOnclickListener里面的回调 onclick方法
+                        }
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * 还可能在自定义view注入，所以是泛型： T = Activity/View
+     */
+    static class ListenerInvocationHandler<T> implements InvocationHandler {
+        private Method method;
+        private T target;
+
+        public ListenerInvocationHandler(T target, Method method) {
+            this.target = target;
+            this.method = method;
+        }
+
+        @Override
+        public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+            return this.method.invoke(target, args);
         }
     }
 }
