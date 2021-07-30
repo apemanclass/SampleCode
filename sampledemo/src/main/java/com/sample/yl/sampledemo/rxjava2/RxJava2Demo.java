@@ -1,6 +1,8 @@
 package com.sample.yl.sampledemo.rxjava2;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -273,25 +275,26 @@ public class RxJava2Demo extends AppCompatActivity {
      * Retrofit与RxJava的结合使用map
      * 解决嵌套请求问题
      */
+    @SuppressLint("CheckResult")
     private void rxJava2AndRetrofitFlatMap() {
         final Api api = RxJava2Demo.createRt().create(Api.class);
-        api.register(new RegisterResponse())    //发起注册请求
-                .subscribeOn(Schedulers.io())   //在IO线程进行网络请求
-                .observeOn(AndroidSchedulers.mainThread())  //回到主线程去处理请求注册结果
+        api.register(new RegisterResponse())    //1: 发起注册请求
+                .subscribeOn(Schedulers.io())   //给上面切换异步 io线程 在IO线程进行网络请求
+                .observeOn(AndroidSchedulers.mainThread())  //给下面切换 主线程  回到主线程去处理请求注册结果
                 .doOnNext(new Consumer<RegisterResponse>() {
                     @Override
                     public void accept(RegisterResponse registerResponse) throws Exception {
-                        //先根据注册的响应结果去做一些操作
+                        //2: 先根据注册的响应结果去做一些操作
                     }
                 })
-                .subscribeOn(Schedulers.io())   //回到IO线程去发起登录请求
+                .observeOn(Schedulers.io())   //3: 给下面切换异步 io线程   回到IO线程去发起登录请求
                 .flatMap(new Function<RegisterResponse, ObservableSource<LoginResponse>>() {
                     @Override
                     public ObservableSource<LoginResponse> apply(RegisterResponse registerResponse) throws Exception {
                         return api.login(new LoginResponse());
                     }
                 })
-                .observeOn(AndroidSchedulers.mainThread())  //回到主线程去处理请求登录的结果
+                .observeOn(AndroidSchedulers.mainThread())  //4: 给下面切换 主线程 回到主线程去处理请求登录的结果
                 .subscribe(new Consumer<LoginResponse>() {
                     @Override
                     public void accept(LoginResponse loginResponse) throws Exception {

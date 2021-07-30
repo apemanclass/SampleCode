@@ -187,9 +187,9 @@ public class MainActivity extends BaseActivity {
 
         RxView.clicks(bt2)
                 .throttleFirst(2, TimeUnit.SECONDS)
-                .subscribe(new Consumer<Unit>() {
+                .subscribe(new Consumer<Object>() {
                     @Override
-                    public void accept(Unit unit) throws Exception {
+                    public void accept(Object o) throws Exception {
 
                     }
                 });
