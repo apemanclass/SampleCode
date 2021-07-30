@@ -50,6 +50,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+import kotlin.Unit;
 
 /**
  * Created by ${jz} on 2018/8/8。
@@ -182,6 +184,15 @@ public class MainActivity extends BaseActivity {
                 //// 设置间隔2秒才能发送下一个事件
                 .throttleFirst(2, TimeUnit.SECONDS)
                 .subscribe(observer);
+
+        RxView.clicks(bt2)
+                .throttleFirst(2, TimeUnit.SECONDS)
+                .subscribe(new Consumer<Unit>() {
+                    @Override
+                    public void accept(Unit unit) throws Exception {
+
+                    }
+                });
     }
 
     @OnClick({R.id.bt1, R.id.bt2, R.id.bt3, R.id.bt4, R.id.bt5, R.id.bt6, R.id.bt7, R.id.bt8, R.id.bt9, R.id.bt10,

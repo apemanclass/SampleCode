@@ -1,8 +1,6 @@
 package com.example.retrofit2mvp.mvp;
 
-import com.example.retrofit2mvp.http.ApiServer;
 import com.example.retrofit2mvp.http.base.BaseObserver;
-import com.example.retrofit2mvp.http.utils.ApiRetrofit;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
