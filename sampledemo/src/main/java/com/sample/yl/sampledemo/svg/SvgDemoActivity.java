@@ -8,6 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sample.yl.mylibrary.inject.AutoWired;
+import com.sample.yl.mylibrary.inject.ContentView;
 import com.sample.yl.mylibrary.inject.InjectUtils;
 import com.sample.yl.mylibrary.inject.InjectView;
 import com.sample.yl.mylibrary.inject.OnClick;
@@ -22,6 +23,8 @@ import java.util.List;
 /**
  * 使用SVG矢量图优化图片适配，减小apk
  */
+
+@ContentView(R.layout.activity_svg_demo)
 public class SvgDemoActivity extends AppCompatActivity {
     @InjectView(R.id.tv_data)
     TextView tvData;
@@ -48,7 +51,9 @@ public class SvgDemoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_svg_demo);
+//        setContentView(R.layout.activity_svg_demo);
+        InjectUtils.injectContent(this);
+
         InjectUtils.injectView(this);
 
         InjectUtils.injectAutoWired(this);

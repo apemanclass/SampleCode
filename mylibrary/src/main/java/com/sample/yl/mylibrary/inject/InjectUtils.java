@@ -6,10 +6,11 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import android.view.View;
 
+import com.orhanobut.logger.Logger;
+
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Arrays;
@@ -19,6 +20,25 @@ import java.util.Arrays;
  * 自定义注解工具
  */
 public class InjectUtils {
+
+    /**
+     * 注解加反射的机制实现自动设置activity的布局ID
+     */
+    public static void injectContent(Object object) {
+        Class<?> activityClass = object.getClass();
+        ContentView mContentView = activityClass.getAnnotation(ContentView.class);
+        if (null == mContentView) {
+            Logger.t("InjectUtils = ").e("ContentView is null");
+            return;
+        }
+        int layoutID = mContentView.value();
+        try {
+            Method setContentViewMethod = activityClass.getMethod("setContentView", int.class);
+            setContentViewMethod.invoke(object, layoutID);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * 注解加反射的机制实现自动findViewById
