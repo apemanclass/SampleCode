@@ -29,6 +29,7 @@ import com.sample.yl.sampledemo.gpslocation.GpsLocActivity;
 import com.sample.yl.sampledemo.imageselector.PictureSelectorActivity;
 import com.sample.yl.sampledemo.immersionbar.Main2Activity;
 import com.sample.yl.sampledemo.loadingdrawable.MainLoadingActivity;
+import com.sample.yl.sampledemo.meeting.VideoMeetingActivity;
 import com.sample.yl.sampledemo.model.UserParcelable;
 import com.sample.yl.sampledemo.model.UserSerializable;
 import com.sample.yl.sampledemo.popupindow.PopupActivity;
@@ -115,6 +116,8 @@ public class MainActivity extends BaseActivity {
     Button bt26;
     @BindView(R.id.bt27)
     Button bt27;
+    @BindView(R.id.bt28)
+    Button bt28;
     //endregion
 
     private long exitTime = 0;
@@ -197,7 +200,7 @@ public class MainActivity extends BaseActivity {
 
     @OnClick({R.id.bt1, R.id.bt2, R.id.bt3, R.id.bt4, R.id.bt5, R.id.bt6, R.id.bt7, R.id.bt8, R.id.bt9, R.id.bt10,
             R.id.bt11, R.id.bt12, R.id.bt13, R.id.bt14, R.id.bt15, R.id.bt16, R.id.bt17, R.id.bt18, R.id.bt19,
-            R.id.bt20, R.id.bt21, R.id.bt22, R.id.bt23, R.id.bt24, R.id.bt25, R.id.bt26, R.id.bt27})
+            R.id.bt20, R.id.bt21, R.id.bt22, R.id.bt23, R.id.bt24, R.id.bt25, R.id.bt26, R.id.bt27, R.id.bt28})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bt1:
@@ -283,6 +286,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.bt27:
                 gotoActivityData();
+                break;
+            case R.id.bt28:
+                gotoActivity(VideoMeetingActivity.class);
                 break;
         }
     }

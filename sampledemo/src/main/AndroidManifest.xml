@@ -2,7 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sample.yl.sampledemo">
 
-    <!-- android:sharedUserId="android.uid.system" -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 仅网络定位的权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 音频管理权限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 开机时系统发出的开机广播 -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:name=".MyApplication"
@@ -19,7 +30,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".bannerimage.BannerActivity" />
         <activity android:name=".timepicker.TimePickerActivity" />
         <activity android:name=".bottomtabbar.BottomTableBarActivity" />
@@ -50,18 +60,16 @@
         <activity android:name=".retrofit.GlideImgActivity" />
         <activity android:name=".retrofitdownload.RetrofitDownloadActivity" />
         <activity android:name=".progress.ProgressBarActivity" />
-
         <activity android:name=".rxjava2.RxJava2Demo" />
-
         <activity android:name=".tts.TextToSpeechActivity" />
         <activity android:name=".autoedittext.AutoEditTextActivity" />
-
         <activity android:name=".svg.SvgDemoActivity" />
         <activity android:name=".customview.CustomViewActivity" />
         <activity android:name=".foregroundservice.ForegroundActivity" />
         <activity android:name=".arouter.ARouterActivity" />
         <activity android:name=".retrofit.BigViewActivity" />
         <activity android:name=".retrofit.PhotoViewActivity" />
+        <activity android:name=".meeting.VideoMeetingActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -91,22 +99,7 @@
         </receiver>
 
         <service android:name=".retrofitdownload.MyIntentService" />
-
         <service android:name=".foregroundservice.ForegroundService" />
     </application>
-
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!-- 仅网络定位的权限 -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!-- 音频管理权限 -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!-- 开机时系统发出的开机广播 -->
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
 </manifest>
