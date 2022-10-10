@@ -37,6 +37,7 @@ import com.sample.yl.sampledemo.progress.ProgressBarActivity;
 import com.sample.yl.sampledemo.retrofit.Retrofit2Activity;
 import com.sample.yl.sampledemo.retrofitdownload.RetrofitDownloadActivity;
 import com.sample.yl.sampledemo.rxjava2.RxJava2Demo;
+import com.sample.yl.sampledemo.shape.ShapeActivity;
 import com.sample.yl.sampledemo.svg.SvgDemoActivity;
 import com.sample.yl.sampledemo.textdome.TvSpanDome;
 import com.sample.yl.sampledemo.timepicker.TimePickerActivity;
@@ -118,6 +119,8 @@ public class MainActivity extends BaseActivity {
     Button bt27;
     @BindView(R.id.bt28)
     Button bt28;
+    @BindView(R.id.bt29)
+    Button bt29;
     //endregion
 
     private long exitTime = 0;
@@ -200,7 +203,7 @@ public class MainActivity extends BaseActivity {
 
     @OnClick({R.id.bt1, R.id.bt2, R.id.bt3, R.id.bt4, R.id.bt5, R.id.bt6, R.id.bt7, R.id.bt8, R.id.bt9, R.id.bt10,
             R.id.bt11, R.id.bt12, R.id.bt13, R.id.bt14, R.id.bt15, R.id.bt16, R.id.bt17, R.id.bt18, R.id.bt19,
-            R.id.bt20, R.id.bt21, R.id.bt22, R.id.bt23, R.id.bt24, R.id.bt25, R.id.bt26, R.id.bt27, R.id.bt28})
+            R.id.bt20, R.id.bt21, R.id.bt22, R.id.bt23, R.id.bt24, R.id.bt25, R.id.bt26, R.id.bt27, R.id.bt28, R.id.bt29})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bt1:
@@ -289,6 +292,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.bt28:
                 gotoActivity(VideoMeetingActivity.class);
+                break;
+            case R.id.bt29:
+                gotoActivity(ShapeActivity.class);
                 break;
         }
     }

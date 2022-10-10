@@ -71,6 +71,7 @@ dependencies {
     implementation 'com.hjq:toast:2.5'      //吐司工具类
     implementation 'com.daasuu:BubbleLayout:1.2.0'  //气泡布局
     implementation 'com.airbnb.android:lottie:2.7.0'//加载json动画库
+    implementation 'com.github.getActivity:ShapeView:8.5'//解决写资源文件
 
     //注入组件ID及点击事件
     implementation 'com.jakewharton:butterknife:10.2.1'
